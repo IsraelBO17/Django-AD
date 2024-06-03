@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://reelservicebe:toSygoBtZEelr1Ngbww5g2bNAQxWBe2h@dpg-cpeoapdds78s73fjsptg-a.oregon-postgres.render.com/djangoad',
+        default=getenv('DATABASE_URL'),
         conn_max_age=600
     )
 }
