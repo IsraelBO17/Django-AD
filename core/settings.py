@@ -87,11 +87,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
     'default': dj_database_url.config(
         default=getenv('DATABASE_URL'),
-        conn_max_age=600
+        engine='django.db.backends.postgresql',
+        conn_max_age=600,
+        conn_health_checks=True,
     )
 }
 
@@ -173,9 +174,9 @@ else:
 
 # drf-spectacular config
 SPECTACULAR_SETTINGS = {
-    "TITLE": "ReelService API",
-    "DESCRIPTION": "API for ReelService",
-    "VERSION": "1.0.0",
+    'TITLE': 'ReelService API',
+    'DESCRIPTION': 'API for ReelService',
+    'VERSION': '1.0.0',
 }
 
 # django-auth-adfs config
