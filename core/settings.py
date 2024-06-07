@@ -167,10 +167,8 @@ REST_FRAMEWORK = {
 if DEBUG:
     CORS_ALLOW_ALL_ORIGINS = True
 else:
-    CORS_ALLOWED_ORIGINS = [
-        'http://localhost:3000',
-        'http://127.0.0.1:3000',
-    ]
+    CORS_ALLOWED_ORIGINS = getenv('CORS_ALLOWED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000').split(',')
+    CORS_ALLOW_CREDENTIALS = True
 
 # drf-spectacular config
 SPECTACULAR_SETTINGS = {
